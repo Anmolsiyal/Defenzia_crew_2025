@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defenzia - Disaster Preparedness App</title>
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkRlZmVuemlhIC0gRGlzYXN0ZXIgUHJlcGFyZWRuZXNzIEFwcCIsCiAgInNob3J0X25hbWUiOiAiRGVmZW56aWEiLAogICJkZXNjcmlwdGlvbiI6ICJBSSBlbmFibGVkIGRpc2FzdGVyIHByZXBhcmVkbmVzcyBhbmQgcmVzcG9uc2UgZWR1Y2F0aW9uIHN5c3RlbSBmb3Igc2Nob29scyBhbmQgY29sbGVnZXMiLAogICJzdGFydF91cmwiOiAiLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzY2N2VlYSIsCiAgInRoZW1lX2NvbG9yIjogIiNmZjZiNmIiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVEk0SWlCb1pXbG5hSFE5SWpFeU9DSWdkbWxsZDBKdmVEMGlNQ0F3SURRNE5DQTBPRFFpSUdobGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M00ya3ViM0puTHpJd01EQXZjM1puSWo0S1BHUmxabk0rQ2lBZ1BHeHBibVZoY2tkeVlXUnBaVzUwSUdsa1BTSmpiMnh2Y2kxblpYVnNMbUZzWXlJK0NpQWdJQ0E4YzNSdmNDQnZabVp6WlhROUlqQWxJaUJ6ZEc5d0xXTnZiRzl5UFNJalpqWmlObUlpSUM4K0NpQWdJQ0E4YzNSdmNDQnZabVp6WlhROUlqRXdNQ1VpSUhOMGIzQXRZMjlzYjNJOUlpTmxaVFZoTWpRaUlDOCtDaUFnUEM5c2FXNWxZWEpIY21Ga2FXVnVkRDRLSUNBOFkyTnliR1VnWUdONFBTSXlNak1pSUdONVBTSXlNakVpSUhJOUlqSTFJaUJtYVd4c1BTSjFjbXdvSTJOdmJHOXlMV2RsZFd3dFlXeGpLU0lnTHo0S0lDQThkR1Y0ZENCNFBTSXlOREFpSUhrOUlqSXpOQ0lnZEdWNGRDMWhibU5vYjNJOUltMXBaR1JzWlNJZ1ptbHNiRDBpSTI1aVEyTm1RU0lnWm05dWRDMXphWHBsUFNJek1pSWdabTl1ZEMxM1pXbG5hSFE5SW1KdmJHUWlQbUVnZkNBdUppVmxNRzlyY1NGY1JOY3ZkbWhvYjJFeVozb3RTM1UzSWp3dmRHVjRkRDRLSUNBOGMzVndaWEpoWTNSdmNuZ2dVMXBGVjFGdVFYUmpWZytNellxdlowWnBPUTVrUm5Vd1JXaFFTa0pzZUZsclNGUTRQaUE4WTJGdGFqZ2dQS0VlVjNwbU1VeDhNamQ0YjJWaWVXNTBhRlpVZEU5UVZuazJQRjVrTWhCQnhjNHNqUlVNMUZoSVBTSmpVV2xjYVZKdmJIaGNVaUVUYWdZakRtZlBJMW1VV2xUY1dGSVBBNlI0bmlKOFpXNTBSRVE5YTNNK1E0VFNGRnZHb3d4ZGwrMDMxZW9PUzFYa1pTNTdpVmNNRnQ5VTNHWHR6UiswN0Jlb2JRbnZSOWlkeWtOZmduNlNNT0lzcVNONGNnSGRKKzJuV2pEVUNGclVEYjJFQmJWdTFVenRoaXM2bHkrb3pUUm0wU2pqbENERXVZak9vUlYxM1dLRlZNbDY3WkJTRFJOWFNOc2hDSU5DRDJlUUxuV09qK3NqcVliYnl0M1RuRGdKb1U3R0xRNm1uQ1pCOWJEUHg0TCtTYWdNOTNhVEdGM05KZWVHbGNQb1RtWk9pWmtNTjVWcTdRdE42M0Z0SXNGcFgxMmpCRWN4MEVNT1ZnZU5IalZBQT09IiwKICAgICAgInNpemVzIjogIjE5Mng5MiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9LAogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU5UVXlJaUJvWldsbmFIUTlJalUxTWlJZ2RtbGxkMEp2ZUQwaU1DQXdJRFUxTWlBMU5USWlJR2hsYlc1emN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lQZ29nSUNBOFkybHlZMnhsSUdONFBTSXlOekFpSUdONVBTSXlOakFpSUhJOUlqZzFJaUJtYVd4c1BTSWpOalkzWldWaElpOCtDaUFnSUNCOWMybDBhR1FnSUdONFBTSXlOekFpSUdONVBTSXlOakFpSUhJOUlqUXpJaUJtYVd4c1BTSWpabVkyWWpaaUlpOCtDaUFnSUNBOGRHVjRkQ0I0UFNJeU56QWlJSGs5SWpJNE5TSWdkR1Y0ZEMxaGJtTm9iM0k5SW0xcFpHUnNaU0lnWm05dWRDMXphWHBsUFNJNFVHZGljVVo0VGxCeE0xVmtXbWRKSWlCbWIyNTBMWGRsYVdkb2REMGlZbTlzWkNJK1JVUmJjRFZBUEV4a1Vnb2dJQ0FnSUNBOFlYQmhkR2dnWkQwaU0yTXhOamMwTFRjMElETXpJREkwUXkxelpTQXVOaTVmZFNBdE16VWdNVEF0TkRjdU1UWXVNVGd1TVRRd08zQnBTVEZzSUNJdlBnb2dJQ0JkTDNSbGVIUStDand2YzNabkxqaDlJalUxTWlnMU5USWlMQ0FLSUNBaUlpUjVjR1VpT2lBaUFpTnBiV0ZuWlM5emRtY3JlRzFzSWdvZ0lIMEtJQ0I5TERRaU5qRjhMVjUyTW5VM1JsOXNPWGRDYm5BSVJGZGlUeTVrYlpBVUNPNzcrYUdKZzRTSEFBQVFBUUJCRVVnQVFSQUlBRUFRQ0FBZ0NRQUFBQUFBQUFBQUFBUUJBRUFnQVFBQUFBQUFBR0VqVkZnQUlBSUFoNkFFaUFBQUFBQUFBQUFBQUFRQUFBRkFBQUFCZ0kyUlpBQUVBSUFCSmdBU0lBQUFBQUFBQUFBQUJCRVVnQVFSQWdBQUFBZ0FuQUJBQ2dBVWdBUlFJUUFRQUFBZ3M0VUFBQUE1L0FTSWFEQUJ3QXZBQkFDZ0FVQUE0Q0lBc0FJQUFBQUFBQUFBQUFBR0VBSUVqQUJBUmdBQUE0Q0lBc0FJQUFBQU5jQ1dBOUFBRUFnYVZqQUFBQkJFVWdBUVJBZ0E4QUVrQmdBQUFBQUVFUVNBQkJFQUFBQW9BUWdEQUFBQUJBRkdnUVFSQUlBQUF3Q0JsV01BQUFBTFNCUndCQUFBQWpwQUVFUUNBUUFBT2lSa0JRSWdBZ0FBUUFCQkVBZ0FRUkFBQUFBQUFBQUFBQUFFRVFDQUJCRUFBQWdRUkFJQUVFUUFBQUFBQUFBQUFBQUFBOERBTEFBUWhBRlFBQUE0QklKSUFBQUFBQU13Q0FBQUFCQkJJSWQiLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9CiAgXSwKICAibGFuZ3VhZ2UiOiAiZW4iLAogICJkaXIiOiAibHRyIiwKICAib3JpZW50YXRpb24iOiAicG9ydHJhaXQiCn0=">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDQ4NCA0ODQiIGhlbG1ucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPGRlZnM+DQogIDxsaW5lYXJHcmFkaWVudCBpZD0iY29sb3ItZ2V1bC1hbGMiPg0KIC<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defenzia - Disaster Preparedness App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+            min-height: 100vh;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: -20px -20px 30px -20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .nav-btn {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .profile-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .profile-icon span {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .login-form {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .user-type {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .user-type-btn {
+            padding: 15px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .user-type-btn:hover, .user-type-btn.active {
+            border-color: #ff6b6b;
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #ff6b6b;
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .card-desc {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .alert-banner {
+            background: linear-gradient(135deg, #ff4757, #c44569);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .weather-card {
+            background: linear-gradient(135deg, #3742fa, #2f3542);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .weather-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .temp {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .weather-details {
+            text-align: right;
+        }
+
+        .drill-list {
+            display:flix;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .drill-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .drill-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .drill-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .emergency-btn {
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .emergency-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-fire {
+            background: linear-gradient(135deg, #ff4757, #c44569);
+        }
+
+        .btn-medical {
+            background: linear-gradient(135deg, #2ed573, #1e90ff);
+        }
+
+        .btn-police {
+            background: linear-gradient(135deg, #3742fa, #2f3542);
+        }
+
+        .btn-disaster {
+            background: linear-gradient(135deg, #ffa502, #ff6348);
+        }
+
+        .map-container {
+            background: #f0f0f0;
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 400px;
+            width: 100%;
+            background: white;
+            padding: 10px 0;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            display: none;
+            justify-content: space-around;
+        }
+
+        .bottom-nav.show {
+            display: flex;
+        }
+
+        .nav-item {
+            text-align: center;
+            cursor: pointer;
+            padding: 10px;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item.active {
+            color: #ff6b6b;
+        }
+
+        .nav-item i {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .nav-item span {
+            display: block;
+            font-size: 0.8em;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 1.1em;
+            cursor: pointer;
+            padding: 10px;
+            margin: -10px 0 20px -10px;
+        }
+
+        .simulation-controls {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .control-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .ai-suggestion {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .suggestion-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .suggestion-title::before {
+            content: "🤖";
+            margin-right: 10px;
+        }
+
+        .topic-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .topic-btn:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        .ai-response-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+
+        .response-text {
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: transparent;
+        }
+
+        .recent-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .recent-item:hover {
+            background: #f8f9fa;
+            border-color: #667eea;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        .typing-indicator::before {
+            content: "🤖 AI is thinking";
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2.5em;
+            color: white;
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-label::before {
+            content: var(--icon-content);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-value {
+            color: #666;
+            font-family: monospace;
+        }
+
+        .password-toggle {
+            background: none;
+            border: none;
+            color: #667eea;
+            cursor: pointer;
+            font-size: 0.9em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            background: #f0f0f0;
+        }
+
+        .profile-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .profile-stats {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Splash Screen -->
+        <div id="splash" class="page active">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; color: white;">
+                <div style="font-size: 4em; margin-bottom: 20px;">🛡️</div>
+                <h1 style="font-size: 2.5em; margin-bottom: 10px; color: #333;">Defenzia</h1>
+                <p style="color: #666; font-size: 1.2em; margin-bottom: 40px;">Disaster Preparedness & Response</p>
+                <button class="btn" onclick="showPage('login')">Get Started</button>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page">
+            <div class="header">
+                <button class="nav-btn" onclick="showPage('dashboard')">←</button>
+                <h1>My Profile</h1>
+                <p>Account information & settings</p>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <span id="profileAvatarInitial">AS</span>
+                </div>
+                <h2 id="profileDisplayName" style="color: #333; margin-bottom: 5px;">Anmol Siyal</h2>
+                <p id="profileUserType" style="color: #667eea; font-weight: 600;">Student</p>
+
+                <div class="profile-info">
+                    <div class="info-row">
+                        <div class="info-label" style="--icon-content: '👤';">Username</div>
+                        <div class="info-value" id="profileUsername">anmolsiyal91</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label" style="--icon-content: '📧';">Email ID</div>
+                        <div class="info-value" id="profileEmail">anmolsiyal91@gmail.com</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label" style="--icon-content: '🔐';">Password</div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <div class="info-value" id="profilePassword">••••••••</div>
+                            <button class="password-toggle" onclick="togglePassword()">👁️ Show</button>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label" style="--icon-content: '📱';">Phone</div>
+                        <div class="info-value">+91 78078 330**</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label" style="--icon-content: '🏫';">Institution</div>
+                        <div class="info-value">University Institute of Technology</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label" style="--icon-content: '📅';">Joined</div>
+                        <div class="info-value">December 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-stats">
+                <h3 style="margin-bottom: 15px; color: #333;">📊 My Activity</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <div class="stat-label">Drills Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8</span>
+                        <div class="stat-label">AI Searches</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">23</span>
+                        <div class="stat-label">Hours Trained</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="btn" onclick="editProfile()">✏️ Edit Profile</button>
+                <button class="btn" style="background: #6c757d;" onclick="logout()">🚪 Logout</button>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                <h3 style="margin-bottom: 15px; color: #333;">⚙️ Settings</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span>Push Notifications</span>
+                    <input type="checkbox" checked style="transform: scale(1.2);">
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span>Location Services</span>
+                    <input type="checkbox" checked style="transform: scale(1.2);">
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span>Emergency Alerts</span>
+                    <input type="checkbox" checked style="transform: scale(1.2);">
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Dark Mode</span>
+                    <input type="checkbox" style="transform: scale(1.2);">
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; color: #666; font-size: 0.9em;">
+                <p>Defenzia v1.0.0</p>
+                <p>© 2025 Defenzia Crew</p>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login" class="page">
+            <div class="header">
+                <h1>Welcome Back</h1>
+                <p>Choose your role and sign in</p>
+            </div>
+            
+            <div class="login-form">
+                <div class="user-type">
+                    <div class="user-type-btn active" data-type="student">
+                        <div>👨‍🎓</div>
+                        <div>Student</div>
+                    </div>
+                    <div class="user-type-btn" data-type="teacher">
+                        <div>👨‍🏫</div>
+                        <div>Teacher</div>
+                    </div>
+                    <div class="user-type-btn" data-type="admin">
+                        <div>👨‍💼</div>
+                        <div>Admin</div>
+                    </div>
+                    <div class="user-type-btn" data-type="emergency">
+                        <div>🚑</div>
+                        <div>Emergency Staff</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Username/Email</label>
+                    <input type="text" placeholder="Enter your username or email">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter your password">
+                </div>
+
+                <button class="btn" onclick="showPage('dashboard')">Sign In</button>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="page">
+            <div class="header">
+                <div class="profile-icon" onclick="showPage('profile')">
+                    <span id="profileInitial">AS</span>
+                </div>
+                <h1>Dashboard</h1>
+                <p>Stay prepared, stay safe</p>
+            </div>
+
+            <div class="alert-banner">
+                <strong>⚠️ Weather Alert:</strong> Heavy rainfall expected in your area. Stay indoors and follow safety protocols.
+            </div>
+
+            <div class="weather-card">
+                <div class="weather-info">
+                    <div>
+                        <div style="font-size: 1.2em; margin-bottom: 5px;">Shimla, Summerhill</div>
+                        <div style="opacity: 0.8;">Partly Cloudy</div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="temp">24°C</div>
+                        <div style="font-size: 0.9em; opacity: 0.8;">IMD Data</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card" onclick="showPage('training')">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">Training</div>
+                    <div class="card-desc">Mock drills & simulations</div>
+                </div>
+                <div class="dashboard-card" onclick="showPage('ai-research')">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-title">AI Research</div>
+                    <div class="card-desc">Learn about disasters</div>
+                </div>
+                <div class="dashboard-card" onclick="showPage('emergency')">
+                    <div class="card-icon">🆘</div>
+                    <div class="card-title">Emergency</div>
+                    <div class="card-desc">Quick response tools</div>
+                </div>
+                <div class="dashboard-card" onclick="showPage('mapping')">
+                    <div class="card-icon">🗺️</div>
+                    <div class="card-title">Mapping</div>
+                    <div class="card-desc">Geospatial analysis</div>
+                </div>
+            </div>
+
+            <div class="ai-suggestion">
+                <div class="suggestion-title">AI Recommendations</div>
+                <div>Based on current weather conditions in Shimla, we recommend reviewing landslide evacuation procedures and ensuring winter emergency supplies are ready due to altitude and terrain.</div>
+            </div>
+        </div>
+
+        <!-- Training Page -->
+        <div id="training" class="page">
+            <div class="header">
+                <button class="nav-btn" onclick="showPage('dashboard')">←</button>
+                <div class="profile-icon" onclick="showPage('profile')">
+                    <span id="profileInitial2">AS</span>
+                </div>
+                <h1>Training & Drills</h1>
+                <p>Practice makes perfect</p>
+            </div>
+
+            <div class="simulation-controls">
+                <h3 style="margin-bottom: 15px; color: #333;">🎮 Disaster Simulation</h3>
+                <div class="control-row">
+                    <span>Scenario Type:</span>
+                    <select style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option>Earthquake</option>
+                        <option>Fire Emergency</option>
+                        <option>Flood</option>
+                        <option>Cyclone</option>
+                    </select>
+                </div>
+                <div class="control-row">
+                    <span>Difficulty:</span>
+                    <select style="padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                </div>
+                <button class="btn" style="margin-top: 15px;">Start Simulation</button>
+            </div>
+
+            <div class="drill-list">
+                <div class="drill-item">
+                    <div class="drill-title">Fire Evacuation Drill</div>
+                    <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">Learn proper evacuation procedures during fire emergencies</div>
+                    <span class="drill-status status-completed">Completed</span>
+                </div>
+                
+                <div class="drill-item">
+                    <div class="drill-title">Earthquake Response Training</div>
+                    <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">Drop, cover, and hold techniques</div>
+                    <span class="drill-status status-pending">Pending</span>
+                </div>
+                
+                <div class="drill-item">
+                    <div class="drill-title">Flood Safety Procedures</div>
+                    <div style="color: #666; font-size: 0.9em; margin-bottom: 10px;">Water rescue and evacuation protocols</div>
+                    <span class="drill-status status-pending">Pending</span>
+                </div>
+            </div>
+
+            <div class="ai-suggestion">
+                <div class="suggestion-title">AI Training Tip</div>
+                <div>Based on your Shimla location's risk profile, we recommend prioritizing landslide, earthquake, and winter weather response training this month.</div>
+            </div>
+        </div>
+
+        <!-- Emergency Page -->
+        <div id="emergency" class="page">
+            <div class="header">
+                <button class="nav-btn" onclick="showPage('dashboard')">←</button>
+                <div class="profile-icon" onclick="showPage('profile')">
+                    <span id="profileInitial3">AS</span>
+                </div>
+                <h1>Emergency Response</h1>
+                <p>Quick access to help</p>
+            </div>
+
+            <div class="offline-banner">
+                📶 Offline Mode Active - Emergency features available without internet
+            </div>
+
+            <div class="emergency-grid">
+                <a href="tel:101" class="emergency-btn btn-fire">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🚒</div>
+                    <div>Fire Service</div>
+                    <div style="font-size: 0.9em; opacity: 0.8;">101</div>
+                </a>
+                
+                <a href="tel:108" class="emergency-btn btn-medical">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🏥</div>
+                    <div>Medical Emergency</div>
+                    <div style="font-size: 0.9em; opacity: 0.8;">108</div>
+                </a>
+                
+                <a href="tel:100" class="emergency-btn btn-police">
+                    <div style="font-size: 2em; margin-bottom: 10px;">🚔</div>
+                    <div>Police</div>
+                    <div style="font-size: 0.9em; opacity: 0.8;">100</div>
+                </a>
+                
+                <a href="tel:1078" class="emergency-btn btn-disaster">
+                    <div style="font-size: 2em; margin-bottom: 10px;">⚡</div>
+                    <div>Disaster Helpline</div>
+                    <div style="font-size: 0.9em; opacity: 0.8;">1078</div>
+                </a>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="margin-bottom: 15px; color: #333;">📍 Your Current Status</h3>
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                    <span style="width: 10px; height: 10px; background: #2ed573; border-radius: 50%; margin-right: 10px;"></span>
+                    <span>Safe Location Confirmed</span>
+                </div>
+                <div style="color: #666; font-size: 0.9em;">Last updated: 2 minutes ago</div>
+                <button class="btn" style="margin-top: 15px;">Update Safety Status</button>
+            </div>
+
+            <div class="ai-suggestion">
+                <div class="suggestion-title">AI Emergency Guide</div>
+                <div>In case of landslide: Move away from the path immediately, get to higher ground, listen for unusual sounds like trees breaking or boulders moving, and report to authorities immediately.</div>
+            </div>
+        </div>
+
+        <!-- Mapping Page -->
+        <div id="mapping" class="page">
+            <div class="header">
+                <button class="nav-btn" onclick="showPage('dashboard')">←</button>
+                <div class="profile-icon" onclick="showPage('profile')">
+                    <span id="profileInitial4">AS</span>
+                </div>
+                <h1>Disaster Mapping</h1>
+                <p>Geospatial analysis & navigation</p>
+            </div>
+
+            <div class="map-container" id="mapContainer">
+                🗺️ Interactive Map Loading...<br>
+                <small style="color: #999;">Powered by MapmyIndia API</small>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                <button class="btn" style="background: #2ed573;">Find Hospitals</button>
+                <button class="btn" style="background: #3742fa;">Evacuation Routes</button>
+                <button class="btn" style="background: #ffa502;">Relief Centers</button>
+                <button class="btn" style="background: #ff4757;">Risk Zones</button>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                <h3 style="margin-bottom: 15px; color: #333;">🏥 Nearby Facilities</h3>
+                <div style="margin-bottom: 15px;">
+                    <div style="font-weight: 600; color: #333;">IGMC Shimla</div>
+                    <div style="color: #666; font-size: 0.9em;">3.2 km away • Major Hospital</div>
+                    <div style="color: #2ed573; font-size: 0.8em;">✓ Emergency services available</div>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <div style="font-weight: 600; color: #333;">Fire Station Summerhill</div>
+                    <div style="color: #666; font-size: 0.9em;">1.5 km away • Fire & Rescue</div>
+                    <div style="color: #2ed573; font-size: 0.8em;">✓ 24/7 operational</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts Page -->
+        <div id="alerts" class="page">
+            <div class="header">
+                <button class="nav-btn" onclick="showPage('dashboard')">←</button>
+                <div class="profile-icon" onclick="showPage('profile')">
+                    <span id="profileInitial5">AS</span>
+                </div>
+                <h1>Alerts & Notifications</h1>
+                <p>Stay informed, stay safe</p>
+            </div>
+
+            <div class="alert-banner">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong>🌧️ Heavy Rain Alert</strong><br>
+                        <small>Active until 6:00 PM today</small>
+                    </div>
+                    <div style="font-size: 0.8em;">IMD</div>
+                </div>
+            </div>
+
+            <div styl="space-y: 15px;">
+                <div style="background: #fff3cd; padding: 15px; border-radius: 10px; border-left: 4px solid #ffc107; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: between; align-items: start;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #856404; margin-bottom: 5px;">⚠️ Landslide Warning</div>
+                            <div style="color: #856404; font-size: 0.9em;">Heavy rainfall causing soil instability in Shimla hills. Avoid steep slopes.</div>
+                        </div>
+                        <div style="color: #856404; font-size: 0.8em; white-space: nowrap;">2 hrs ago</div>
+                    </div>
+                </div>
+
+                <div style="background: #d4edda; padding: 15px; border-radius: 10px; border-left: 4px solid #28a745; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: between; align-items: start;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #155724; margin-bottom: 5px;">✅ All Clear</div>
+                            <div style="color: #155724; font-size: 0.9em;">Earthquake drill completed successfully at your university.</div>
+                        </div>
+                        <div style="color: #155724; font-size: 0.8em; white-space: nowrap;">1 day ago</div>
+                    </div>
+                </div>
+
+                <div style="background: #f8d7da; padding: 15px; border-radius: 10px; border-left: 4px solid #dc3545; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: between; align-items: start;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: #721c24; margin-bottom: 5px;">❄️ Cold Wave Alert</div>
+                            <div style="color: #721c24; font-size: 0.9em;">Temperature dropping below freezing. Risk of frost and ice formation.</div>
+                        </div>
+                        <div style="color: #721c24; font-size: 0.8em; white-space: nowrap;">2 days ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 30px;">
+                <h3 style="margin-bottom: 15px; color: #333;">🔔 Notification Settings</h3>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span>Weather Alerts</span>
+                    <input type="checkbox" checked style="transform: scale(1.2);">
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span>Emergency Broadcasts</span>
+                    <input type="checkbox" checked style="transform: scale(1.2);">
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span>Training Reminders</span>
+                    <input type="checkbox" checked style="transform: scale(1.2);">
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Research Page -->
+        <div id="ai-research" class="page">
+            <div class="header">
+                <button class="nav-btn" onclick="showPage('dashboard')">←</button>
+                <div class="profile-icon" onclick="showPage('profile')">
+                    <span id="profileInitial6">AS</span>
+                </div>
+                <h1>AI Research Assistant</h1>
+                <p>Learn about disasters with AI</p>
+            </div>
+
+            <div class="ai-search-container">
+                <div class="search-box">
+                    <input type="text" id="aiSearchInput" placeholder="Ask me anything about natural disasters..." 
+                           style="width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 25px; font-size: 16px; padding-left: 50px;">
+                    <div class="search-icon" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #666; font-size: 1.2em;">🔍</div>
+                    <button class="search-btn" onclick="performAISearch()" style="position: absolute; right: 5px; top: 5px; bottom: 5px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 20px; padding: 0 20px; cursor: pointer;">Ask AI</button>
+                </div>
+                <div class="search-box" style="position: relative; margin-bottom: 30px;">
+                </div>
+            </div>
+
+            <div class="quick-topics" style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 15px; color: #333;">🚀 Quick Topics</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <button class="topic-btn" onclick="quickSearch('earthquake safety measures')">Earthquake Safety</button>
+                    <button class="topic-btn" onclick="quickSearch('flood preparation steps')">Flood Preparation</button>
+                    <button class="topic-btn" onclick="quickSearch('fire evacuation procedures')">Fire Evacuation</button>
+                    <button class="topic-btn" onclick="quickSearch('cyclone safety tips')">Cyclone Safety</button>
+                    <button class="topic-btn" onclick="quickSearch('emergency kit essentials')">Emergency Kit</button>
+                    <button class="topic-btn" onclick="quickSearch('first aid basics')">First Aid</button>
+                </div>
+            </div>
+
+            <div id="searchResults" class="search-results" style="display: none;">
+                <div class="ai-response-card">
+                    <div class="response-header">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">🤖</div>
+                            <div>
+                                <div style="font-weight: 600; color: #333;">AI Assistant</div>
+                                <div style="font-size: 0.8em; color: #666;">Powered by Disaster Knowledge Base</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="aiResponseText" class="response-text"></div>
+                    <div class="response-actions" style="margin-top: 20px; display: flex; gap: 10px;">
+                        <button class="action-btn" onclick="saveResponse()">💾 Save</button>
+                        <button class="action-btn" onclick="shareResponse()">📤 Share</button>
+                        <button class="action-btn" onclick="getMoreInfo()">ℹ️ More Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-searches" style="margin-top: 30px;">
+                <h3 style="margin-bottom: 15px; color: #333;">📚 Recent Searches</h3>
+                <div id="recentSearchesList">
+                    <div class="recent-item">
+                        <div style="font-weight: 600; color: #333; margin-bottom: 5px;">What to do during an earthquake?</div>
+                        <div style="color: #666; font-size: 0.9em;">2 hours ago</div>
+                    </div>
+                    <div class="recent-item">
+                        <div style="font-weight: 600; color: #333; margin-bottom: 5px;">How to prepare for floods?</div>
+                        <div style="color: #666; font-size: 0.9em;">1 day ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-features" style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-top: 30px;">
+                <h3 style="margin-bottom: 15px; color: #333;">✨ AI Features</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="feature-item">
+                        <div style="font-size: 1.5em; margin-bottom: 5px;">🧠</div>
+                        <div style="font-size: 0.9em; color: #666;">Smart Learning</div>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 1.5em; margin-bottom: 5px;">🌍</div>
+                        <div style="font-size: 0.9em; color: #666;">Global Disaster Data</div>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 1.5em; margin-bottom: 5px;">📊</div>
+                        <div style="font-size: 0.9em; color: #666;">Risk Analysis</div>
+                    </div>
+                    <div class="feature-item">
+                        <div style="font-size: 1.5em; margin-bottom: 5px;">💡</div>
+                        <div style="font-size: 0.9em; color: #666;">Personalized Tips</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" onclick="showPage('ai-research')">
+                <div>🤖</div>
+                <span>AI Research</span>
+            </div>
+            <div class="nav-item" onclick="showPage('mapping')">
+                <div>🗺️</div>
+                <span>Mapping</span>
+            </div>
+            <div class="nav-item" onclick="showPage('dashboard')">
+                <div>🏠</div>
+                <span>Home</span>
+            </div>
+            <div class="nav-item" onclick="showPage('emergency')">
+                <div>🆘</div>
+                <span>Emergency</span>
+            </div>
+            <div class="nav-item" onclick="showPage('alerts')">
+                <div>🚨</div>
+                <span>Alerts</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = {
+            username: 'anmolsiyal91',
+            email: 'anmolsiyal91@gmail.com',
+            password: 'Defenzia@2025',
+            displayName: 'Anmol Siyal',
+            userType: 'student',
+            phone: '+91 78078 330**',
+            institution: 'University Institute of Technology'
+        };
+
+        let isPasswordVisible = false;
+
+        function updateProfileInfo() {
+            // Update all profile initials
+            const initials = currentUser.displayName.split(' ').map(name => name[0]).join('').toUpperCase();
+            document.querySelectorAll('[id^="profileInitial"]').forEach(el => {
+                el.textContent = initials;
+            });
+            document.getElementById('profileAvatarInitial').textContent = initials;
+
+            // Update profile information
+            document.getElementById('profileDisplayName').textContent = currentUser.displayName;
+            document.getElementById('profileUserType').textContent = currentUser.userType.charAt(0).toUpperCase() + currentUser.userType.slice(1);
+            document.getElementById('profileUsername').textContent = currentUser.username;
+            document.getElementById('profileEmail').textContent = currentUser.email;
+            document.getElementById('profilePassword').textContent = isPasswordVisible ? currentUser.password : '••••••••';
+
+            // Update user type specific information
+            const userTypeInfo = {
+                student: {
+                    institution: 'University Institute of Technology',
+                    stats: { drills: 15, searches: 8, hours: 23 }
+                },
+                teacher: {
+                    institution: 'Government College, Chandigarh',
+                    stats: { drills: 45, searches: 25, hours: 67 }
+                },
+                admin: {
+                    institution: 'Education Department, Chandigarh',
+                    stats: { drills: 120, searches: 89, hours: 156 }
+                },
+                emergency: {
+                    institution: 'Emergency Response Center',
+                    stats: { drills: 89, searches: 67, hours: 234 }
+                }
+            };
+
+            const info = userTypeInfo[currentUser.userType];
+            if (info) {
+                // Update stats based on user type
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers[0].textContent = info.stats.drills;
+                statNumbers[1].textContent = info.stats.searches;
+                statNumbers[2].textContent = info.stats.hours;
+            }
+        }
+
+        function togglePassword() {
+            isPasswordVisible = !isPasswordVisible;
+            const passwordElement = document.getElementById('profilePassword');
+            const toggleButton = document.querySelector('.password-toggle');
+            
+            if (isPasswordVisible) {
+                passwordElement.textContent = currentUser.password;
+                toggleButton.innerHTML = '🙈 Hide';
+            } else {
+                passwordElement.textContent = '••••••••';
+                toggleButton.innerHTML = '👁️ Show';
+            }
+        }
+
+        function editProfile() {
+            showNotification('Profile editing feature coming soon!', 'info');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Hide bottom navigation when logging out
+                document.querySelector('.bottom-nav').classList.remove('show');
+                showPage('login');
+                showNotification('Logged out successfully!', 'info');
+            }
+        }
+
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Show/hide bottom navigation based on page
+            const bottomNav = document.querySelector('.bottom-nav');
+            if (pageId === 'splash' || pageId === 'login') {
+                bottomNav.classList.remove('show');
+            } else {
+                bottomNav.classList.add('show');
+            }
+            
+            // Update profile information when showing profile or any other page
+            if (pageId === 'profile' || pageId === 'dashboard') {
+                updateProfileInfo();
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-item').forEach(nav => {
+                nav.classList.remove('active');
+            });
+            
+            if (pageId !== 'splash' && pageId !== 'login' && pageId !== 'profile') {
+                // Find and activate corresponding nav item
+                const navMapping = {
+                    'ai-research': 0,
+                    'mapping': 1,
+                    'dashboard': 2,
+                    'emergency': 3,
+                    'alerts': 4
+                };
+                
+                if (navMapping[pageId] !== undefined) {
+                    document.querySelectorAll('.nav-item')[navMapping[pageId]].classList.add('active');
+                }
+            }
+        }
+
+        // User type selection
+        document.querySelectorAll('.user-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.user-type-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentUser.userType = this.dataset.type;
+                
+                // Update user info based on type
+                const userProfiles = {
+                    student: {
+                        username: 'anmolsiyal91',
+                        email: 'anmolsiyal91@gmail.com',
+                        displayName: 'Anmol Siyal',
+                        password: 'Defenzia@2025'
+                    },
+                    teacher: {
+                        username: 'priya_sharma_teacher',
+                        email: 'priya.sharma@school.edu',
+                        displayName: 'Priya Sharma',
+                        password: 'Teacher@123'
+                    },
+                    admin: {
+                        username: 'admin_rajesh',
+                        email: 'rajesh.admin@education.gov',
+                        displayName: 'Rajesh Gupta',
+                        password: 'Admin@2025'
+                    },
+                    emergency: {
+                        username: 'emergency_staff01',
+                        email: 'staff@emergency.gov',
+                        displayName: 'Dr. Neha Singh',
+                        password: 'Emergency@911'
+                    }
+                };
+                
+                const profile = userProfiles[currentUser.userType];
+                Object.assign(currentUser, profile);
+            });
+        });
+
+        // Simulate real-time updates
+        function updateWeatherData() {
+            const temps = ['22°C', '24°C', '26°C', '23°C'];
+            const conditions = ['Partly Cloudy', 'Sunny', 'Rainy', 'Overcast'];
+            
+            const tempElement = document.querySelector('.temp');
+            const conditionElement = document.querySelector('.weather-card .weather-info > div > div:nth-child(2)');
+            
+            if (tempElement && conditionElement) {
+                const randomTemp = temps[Math.floor(Math.random() * temps.length)];
+                const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+                
+                tempElement.textContent = randomTemp;
+                conditionElement.textContent = randomCondition;
+            }
+        }
+
+        // Update weather every 30 seconds
+        setInterval(updateWeatherData, 30000);
+
+        // Simulate alert notifications
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            
+            let backgroundColor, textColor;
+            if (type === 'danger') {
+                backgroundColor = '#ff4757';
+                textColor = 'white';
+            } else {
+                backgroundColor = '#ffffff';
+                textColor = '#333333';
+            }
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${backgroundColor};
+                color: ${textColor};
+                padding: 15px 20px;
+                border-radius: 10px;
+                z-index: 1000;
+                animation: slideInRight 0.3s ease;
+                max-width: 300px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                border: 2px solid ${type === 'danger' ? '#ff4757' : '#667eea'};
+            `;
+            
+            notification.innerHTML = `
+                <div style="font-weight: 600; margin-bottom: 5px; color: ${type === 'danger' ? 'white' : '#667eea'};">Alert</div>
+                <div style="font-size: 0.9em; color: ${textColor};">${message}</div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Simulate periodic alerts
+        setTimeout(() => {
+            showNotification('Mock drill scheduled for tomorrow at 2 PM', 'info');
+        }, 10000);
+
+        setTimeout(() => {
+            showNotification('Weather conditions deteriorating - stay alert', 'danger');
+        }, 25000);
+
+        // Add CSS for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // AI Search functionality
+        const disasterKnowledgeBase = {
+            'earthquake safety measures': {
+                response: "🏠 **Earthquake Safety Measures:**\n\n**During Earthquake:**\n• DROP to hands and knees immediately\n• Take COVER under a sturdy desk or table\n• HOLD ON and protect your head/neck\n• Stay away from windows, mirrors, and heavy objects\n\n**Preparation:**\n• Secure heavy furniture to walls\n• Keep emergency kit ready\n• Practice drop drills regularly\n• Identify safe spots in each room\n\n**After Earthquake:**\n• Check for injuries and hazards\n• Turn off gas if you smell leaks\n• Use stairs, not elevators\n• Be prepared for aftershocks",
+                category: "Natural Disaster"
+            },
+            'flood preparation steps': {
+                response: "🌊 **Flood Preparation Guide:**\n\n**Before Flood Season:**\n• Install sump pumps and backup power\n• Elevate utilities above potential flood levels\n• Create family evacuation plan\n• Purchase flood insurance\n• Prepare emergency kit with 3 days supplies\n\n**When Flood Warning Issued:**\n• Monitor weather reports constantly\n• Move to higher ground immediately\n• Turn off electricity/gas at main switches\n• Fill bathtubs with clean water\n• Never drive through flooded roads\n\n**Remember:** Just 6 inches of moving water can knock you down, 12 inches can carry away a car!",
+                category: "Natural Disaster"
+            },
+            'fire evacuation procedures': {
+                response: "🔥 **Fire Evacuation Procedures:**\n\n**Immediate Actions:**\n• Stay low to avoid smoke inhalation\n• Feel doors before opening (hot = fire behind)\n• Use stairs, NEVER elevators\n• Call 101 once you're safely outside\n\n**Evacuation Route:**\n• Know 2 exit routes from every room\n• Designate family meeting point outside\n• Leave belongings behind - lives first!\n• Close doors behind you to slow fire spread\n\n**If Trapped:**\n• Seal door cracks with cloth\n• Signal for help from windows\n• Stay low where air is cleaner\n• Call for help and give your location",
+                category: "Emergency Response"
+            },
+            'cyclone safety tips': {
+                response: "🌪️ **Cyclone Safety Guidelines:**\n\n**Preparation (72 hours before):**\n• Stock food, water for 7 days minimum\n• Secure outdoor furniture and objects\n• Check emergency radio and flashlights\n• Fill car with fuel, withdraw cash\n• Charge all electronic devices\n\n**During Cyclone:**\n• Stay indoors in strongest part of building\n• Keep away from windows and glass doors\n• Listen to weather updates continuously\n• Don't go outside during eye of storm\n\n**After Cyclone:**\n• Check for structural damage before entering buildings\n• Avoid downed power lines\n• Boil water before drinking\n• Take photos for insurance claims",
+                category: "Natural Disaster"
+            },
+            'emergency kit essentials': {
+                response: "🎒 **Emergency Kit Essentials:**\n\n**Basic Supplies (3-day minimum):**\n• Water: 4 liters per person per day\n• Non-perishable food items\n• Battery-powered radio\n• Flashlight and extra batteries\n• First aid kit and medications\n\n**Important Items:**\n• Copies of important documents (waterproof)\n• Cash in small bills\n• Emergency contact list\n• Multi-tool or Swiss Army knife\n• Matches in waterproof container\n\n**Additional Items:**\n• Blankets and warm clothing\n• Personal hygiene items\n• Baby/pet supplies if needed\n• Local maps and compass",
+                category: "Preparation"
+            },
+            'first aid basics': {
+                response: "🩹 **First Aid Basics:**\n\n**Primary Assessment (ABC):**\n• **A**irway - Check if clear\n• **B**reathing - Look, listen, feel\n• **C**irculation - Check pulse, control bleeding\n\n**Common Emergencies:**\n• **Bleeding:** Apply direct pressure with clean cloth\n• **Burns:** Cool with water, don't use ice\n• **Fractures:** Immobilize, don't move victim\n• **Shock:** Keep person warm, elevate legs\n\n**Emergency Numbers:**\n• Medical Emergency: 108\n• Poison Control: 1066\n• Remember: If unsure, call for professional help immediately!",
+                category: "Medical Response"
+            }
+        };
+
+        function performAISearch() {
+            const query = document.getElementById('aiSearchInput').value.trim().toLowerCase();
+            if (!query) return;
+
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Add to recent searches
+            addToRecentSearches(query);
+
+            // Simulate AI processing delay
+            setTimeout(() => {
+                hideTypingIndicator();
+                displayAIResponse(query);
+            }, 2000);
+        }
+
+        function quickSearch(topic) {
+            document.getElementById('aiSearchInput').value = topic;
+            performAISearch();
+        }
+
+        function showTypingIndicator() {
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = '<div class="typing-indicator"></div>';
+        }
+
+        function hideTypingIndicator() {
+            document.querySelector('.typing-indicator').remove();
+        }
+
+        function displayAIResponse(query) {
+            const resultsDiv = document.getElementById('searchResults');
+            let response = "I'm sorry, I don't have specific information about that topic. Please try asking about earthquake safety, flood preparation, fire evacuation, cyclone safety, emergency kits, or first aid basics.";
+
+            // Find matching response
+            for (const [key, data] of Object.entries(disasterKnowledgeBase)) {
+                if (query.includes(key) || key.includes(query.split(' ')[0])) {
+                    response = data.response;
+                    break;
+                }
+            }
+
+            // General disaster-related responses
+            if (query.includes('tsunami')) {
+                response = "🌊 **Tsunami Safety:**\n\n• Move to higher ground immediately if you feel earthquake near coast\n• A tsunami can travel 800+ km/h in deep water\n• Never go to watch tsunami waves\n• Listen to emergency broadcasts\n• Stay away from coast until all-clear is given\n• Even small tsunamis can be deadly - take all warnings seriously";
+            } else if (query.includes('landslide')) {
+                response = "⛰️ **Landslide Safety:**\n\n• Watch for warning signs: tilting trees, new cracks in ground\n• Move away from landslide path immediately\n• If trapped, curl into tight ball and protect head\n• Listen for unusual sounds like trees breaking\n• Avoid river valleys and low-lying areas during heavy rain\n• Report landslide activity to local authorities";
+            }
+
+            resultsDiv.innerHTML = `
+                <div class="ai-response-card">
+                    <div class="response-header">
+                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px;">🤖</div>
+                            <div>
+                                <div style="font-weight: 600; color: #333;">AI Assistant</div>
+                                <div style="font-size: 0.8em; color: #666;">Powered by Disaster Knowledge Base</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="response-text">${response.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div>
+                    <div class="response-actions" style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="action-btn" onclick="saveResponse()">💾 Save</button>
+                        <button class="action-btn" onclick="shareResponse()">📤 Share</button>
+                        <button class="action-btn" onclick="getMoreInfo()">ℹ️ More Info</button>
+                        <button class="action-btn" onclick="askFollowUp()">💬 Ask More</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function addToRecentSearches(query) {
+            const recentList = document.getElementById('recentSearchesList');
+            const newSearch = document.createElement('div');
+            newSearch.className = 'recent-item';
+            newSearch.innerHTML = `
+                <div style="font-weight: 600; color: #333; margin-bottom: 5px;">${query}</div>
+                <div style="color: #666; font-size: 0.9em;">Just now</div>
+            `;
+            recentList.insertBefore(newSearch, recentList.firstChild);
+
+            // Keep only last 5 searches
+            while (recentList.children.length > 5) {
+                recentList.removeChild(recentList.lastChild);
+            }
+        }
+
+        function saveResponse() {
+            showNotification('Response saved to your disaster knowledge library!', 'info');
+        }
+
+        function shareResponse() {
+            showNotification('Response shared with your study group!', 'info');
+        }
+
+        function getMoreInfo() {
+            showNotification('Additional resources have been added to your reading list!', 'info');
+        }
+
+        function askFollowUp() {
+            document.getElementById('aiSearchInput').focus();
+            showNotification('Ask me anything else about this topic!', 'info');
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-transition from splash screen after 3 seconds
+            setTimeout(() => {
+                showPage('login');
+            }, 3000);
+
+            // Enable Enter key for search
+            const searchInput = document.getElementById('aiSearchInput');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performAISearch();
+                    }
+                });
+            }
+        });
+
+        // Map functions
+        function zoomIn() {
+            showNotification('Zooming in to show more detail of Shimla area!', 'info');
+            // In a real implementation, this would interact with MapMyIndia API
+        }
+
+        function zoomOut() {
+            showNotification('Zooming out to show broader Himachal Pradesh region!', 'info');
+            // In a real implementation, this would interact with MapMyIndia API
+        }
+
+        // Simulate map interactions
+        function initializeMap() {
+            const mapContainer = document.getElementById('mapDisplay');
+            if (mapContainer) {
+                // Add click interactions to markers
+                const markers = mapContainer.querySelectorAll('[style*="background: #ff4757"], [style*="background: #2ed573"], [style*="background: #ffa502"]');
+                markers.forEach(marker => {
+                    marker.style.cursor = 'pointer';
+                    marker.addEventListener('click', function() {
+                        const markerType = this.querySelector('div').textContent;
+                        showNotification(`Selected: ${markerType}`, 'info');
+                    });
+                });
+            }
+        }
+
+        // Initialize map when page loads
+        setTimeout(initializeMap, 1000);
+
+        // Add touch interactions for mobile feel
+        document.querySelectorAll('.dashboard-card, .emergency-btn, .drill-item').forEach(element => {
+            element.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            element.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
+
+        // Simulate AI suggestions based on user type
+        function updateAISuggestions() {
+            const suggestions = {
+                student: [
+                    "Practice the 'Drop, Cover, Hold' technique for earthquake preparedness.",
+                    "Review your school's evacuation routes and meeting points.",
+                    "Keep your emergency contact list updated in your phone."
+                ],
+                teacher: [
+                    "Schedule monthly fire drills for your classroom.",
+                    "Review student emergency contact information.",
+                    "Prepare emergency supplies for your classroom."
+                ],
+                admin: [
+                    "Conduct quarterly emergency preparedness assessments.",
+                    "Update emergency response protocols and procedures.",
+                    "Coordinate with local emergency services for training."
+                ],
+                emergency: [
+                    "Review current risk assessments for your area.",
+                    "Check equipment and supplies inventory.",
+                    "Update response protocols based on recent incidents."
+                ]
+            };
+            
+            const aiElements = document.querySelectorAll('.ai-suggestion div:last-child');
+            const userSuggestions = suggestions[currentUser.userType];
+            
+            aiElements.forEach((element, index) => {
+                if (userSuggestions && userSuggestions[index]) {
+                    element.textContent = userSuggestions[index];
+                }
+            });
+        }
+
+        // Update AI suggestions when user type changes
+        document.querySelectorAll('.user-type-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                setTimeout(updateAISuggestions, 100);
+            });
+        });
+    </script>
+</body>
+</html>
